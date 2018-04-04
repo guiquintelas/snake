@@ -1,0 +1,72 @@
+
+snake normal
+//BUGS
+
+ao minimizar e maximizar o metodo repaint é chamado na tela do jogo, deixando ele branco //feito 09/05/2015
+	usar listener para pintar painel assim q for maximizado
+
+
+//NOVAS MECANICAS
+
+-maças diminuem sua pontuaçao ao passar do tempo /feito 08/05/2015
+
+-maças encostadas nas pontas dao pontuação bonus /feito 08/05/2015
+	possivel nova aparencia 
+	possivel novo som
+
+//ESTETICA
+-aparecer os pontos ganhos na ultima maça no extado lugar onde ela estava//feito 09/05/2015
+	um possivel tempo, tipo 2 segundo ate desaparecer ou pelum determinado numeros de atualizaçoes
+	um fade out para numero desaparecer
+
+
+-fundo aleatóriamente gerado
+	varias imagens do tamanho de cells para serem escolhidas na hora de fazer  campo
+
+-imagem da cobra melhorada//feito 11/05/2015
+	demarcaçao lateral para saber os limites de um segmento de cobra
+	
+-imagem de maça melhorada// feito 10/05/2015
+
+-musica de fundo? //feito 06/06/2015
+
+//DESEMPRENHO
+
+
+-mudar arquivos de som para mp3
+	usar o JMF com codecs de mp3
+	javafx demonstrando um delay na hora de tocar um audio
+
+
+
+//MODOS DE JOGO ---- modos podem ser stacaveis, o modo velocidade pode ser jogado junto com o modo psicodelico por exemplo
+
+-possivel sistema para vicio do player, o quando mais pontos ganhar mais features destrava
+	novas sprites
+	nova musica // feito 06/06/2015
+	novos modos //feito 09/05/2015
+	sendo basiado em uma interface de loja?
+
+-snake psicodelica 
+	-alucinaçoes aleatorias, criar biblioteca de imagem(ou gifs) doidas // feito 25/05/2015
+	-imagem da maça como uma pilula de lsd               //feito 12/05/2015 cogumelos e nao pilulas
+	-musica de fundo q comece normal, mas q aumente e distorce 
+		com a aparição de musicas famosas q dao uma vibe boa
+	-inicio como jogo da cobrinha normal, porem um crescente clima de doidao // feito 06/06/2015
+	-fundo pisca a cada pilula tomada
+	-fundo em crescente mudança, começando normal e gradualmente aumentando a opacidade de um gif psicodelico de fundo
+		fundo psicodelico pode ser uma ilusao de otica, ou uma mandala, ou cores bonitas(imagem de lsd)
+	-distorçoes de tela q se movem
+		sendo pregressivamente mais comum esse locomoçao e mais intensa
+	-MAIS distorçoes de cores 
+		distorçao de inverter // feito 05/06/2015	
+
+-extreme sendo destravavel aos 5000 /feito 08/05/2015
+	msg mostrando q isso precisa acontecer e que ja aconteceu em algum lugar
+	
+-modo de velocidade aumentando//feito 09/05/2015
+	modo somente destravavel 
+	
+-possivel objeto bonus//feito 10/05/2015
+	batata chips com som de batata chips
+	batata chips em imagem
