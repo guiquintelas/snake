@@ -4,6 +4,8 @@ Jogo da Cobrinha com um twist
 
 Meu primeiro jogo com gráficos, feito no inicio de 2015
 
+<img src="http://agilti.com.br/prints/snake.png" />
+
 **Features**
 - 4 modos de velocidade (Mais rápido mais pontos)
 - Menos pontos por tempo entre as comidas
