@@ -13,12 +13,12 @@ import snake.principal.Cell;
 import snake.principal.Principal;
 
 @SuppressWarnings("serial")
-public class PontosGanhosAnimaçao extends JPanel implements Runnable{
+public class PontosGanhosAnimacao extends JPanel implements Runnable{
 	public int tempo = 50;
 	public String valor;
 	public float alpha = 1;
-	public int xPosiçao;
-	public int yPosiçao;
+	public int xPosicao;
+	public int yPosicao;
 	private boolean ativo = true;
 	public boolean jaAdd = false;
 	private boolean chip;
@@ -26,20 +26,20 @@ public class PontosGanhosAnimaçao extends JPanel implements Runnable{
 	private BufferedImage imageParaPintar;
 	private Graphics2D g2;
 	
-	public PontosGanhosAnimaçao(String valor, int x, int y, boolean isChips) {
+	public PontosGanhosAnimacao(String valor, int x, int y, boolean isChips) {
 		
 		this.valor = "+" + valor;
 		
-		//acertar posiçao de texto quando maça estiver no lado extremo direito da tela
+		//acertar posicao de texto quando maca estiver no lado extremo direito da tela
 		if (x >= 340) {
-			this.xPosiçao = x - 30;
+			this.xPosicao = x - 30;
 		} else if (x >= 320) {
-			this.xPosiçao = x - 20;
+			this.xPosicao = x - 20;
 		} else {
-			this.xPosiçao = x;
+			this.xPosicao = x;
 		}
 	
-		this.yPosiçao = y + 55;//para compensar GUI q mede 60 e o -5 é para q string apareça um pouco em cima
+		this.yPosicao = y + 55;//para compensar GUI q mede 60 e o -5 c para q string apareca um pouco em cima
 		//acerta a cor
 		if (isChips) {
 			fontColor = new Color(255, 215, 0);
@@ -53,13 +53,13 @@ public class PontosGanhosAnimaçao extends JPanel implements Runnable{
 	
 		this.chip = isChips;
 		
-		setBounds(xPosiçao, yPosiçao, 50, 20);
+		setBounds(xPosicao, yPosicao, 50, 20);
 		setOpaque(false);
 		imageParaPintar = new BufferedImage(50, 20, BufferedImage.TYPE_INT_ARGB);
 		g2 = (Graphics2D) imageParaPintar.getGraphics();
 		
 		new Thread(this).start();
-		System.out.println("crio pontos animaçao");
+		System.out.println("crio pontos animacao");
 	}
 	
 	public void atualizar() {
@@ -68,9 +68,9 @@ public class PontosGanhosAnimaçao extends JPanel implements Runnable{
 			ativo = false;
 			return;
 		}
-		yPosiçao--;	
+		yPosicao--;
 		
-		setLocation(xPosiçao, yPosiçao);
+		setLocation(xPosicao, yPosicao);
 		alpha = alpha -0.02f;
 		
 		
@@ -130,6 +130,6 @@ public class PontosGanhosAnimaçao extends JPanel implements Runnable{
 				e.printStackTrace();
 			}
 		}
-		System.out.println("pontos animaçao finalizado");
+		System.out.println("pontos animacao finalizado");
 	}
 }

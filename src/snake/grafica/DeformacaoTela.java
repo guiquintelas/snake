@@ -8,7 +8,7 @@ import com.jhlabs.image.*;
 
 import snake.principal.Principal;
 
-public class DeformaçaoTela implements Runnable {
+public class DeformacaoTela implements Runnable {
 	private boolean ativo = false;
 	private BufferedImage imagemRodada;
 	private double angulo;
@@ -43,7 +43,7 @@ public class DeformaçaoTela implements Runnable {
 	private boolean isFlashingAtivado = false;
 	
 
-	public DeformaçaoTela() {
+	public DeformacaoTela() {
 		this.ativo = false;
 
 		invert = new InvertFilter();
@@ -55,14 +55,14 @@ public class DeformaçaoTela implements Runnable {
 
 	public void updateStatus() {
 		if (Principal.nivelDrogas % 4 == 0 && Principal.nivelDrogas >= 4 && !ativo) {
-			//elimina a possibilidade da deformaçao se repetir no msm nivel de drogas
+			//elimina a possibilidade da deformacao se repetir no msm nivel de drogas
 			if (Principal.nivelDrogas == oldNivelDrogas) {
 				return;
 			}
 
 			oldNivelDrogas = Principal.nivelDrogas;
 
-			System.out.println("Deformaçao ativada");
+			System.out.println("Deformacao ativada");
 			
 			setRandomFilter();
 			
@@ -106,7 +106,7 @@ public class DeformaçaoTela implements Runnable {
 		
 	}
 	
-	public BufferedImage animaçaoDeformar(BufferedImage imagemADeformar) {
+	public BufferedImage animacaoDeformar(BufferedImage imagemADeformar) {
 		
 		if (Principal.isPcMerda) return imagemADeformar;
 		
@@ -119,7 +119,7 @@ public class DeformaçaoTela implements Runnable {
 					
 		}
 		
-		if (BackAlucinaçao.isAtivado()) {
+		if (BackAlucinacao.isAtivado()) {
 			this.ativo = false;
 		}
 		
@@ -148,7 +148,7 @@ public class DeformaçaoTela implements Runnable {
 			flashingTimer.schedule(new TimerTask() {			
 				@Override
 				public void run() {
-					DeformaçaoTela.this.isFlashingAtivado = false;
+					DeformacaoTela.this.isFlashingAtivado = false;
 					isInvert = false;
 					isEmboss = false;
 					
@@ -287,7 +287,7 @@ public class DeformaçaoTela implements Runnable {
 		}
 
 		thread = null;
-		System.out.println("fim de deformaçao");
+		System.out.println("fim de deformacao");
 
 	}
 

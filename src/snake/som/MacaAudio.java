@@ -4,11 +4,11 @@ import java.util.ArrayList;
 
 import javax.sound.sampled.Clip;
 
-public class MaçaAudio extends RandomAudio {
+public class MacaAudio extends RandomAudio {
 	
 	private static ArrayList<Clip> listaAudio = new ArrayList<Clip>();
 
-	public MaçaAudio(String fileName) {
+	public MacaAudio(String fileName) {
 		super(fileName, listaAudio);
 	}
 }

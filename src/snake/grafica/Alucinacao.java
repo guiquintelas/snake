@@ -14,17 +14,17 @@ import snake.principal.Principal;
 
 //esse sistema funciona com um JLabel com um gif de icone dentro de um JLabel q tem seu paint reinscrito para
 //alterar seus niveis alpha
-//sem usar esse sistema as gifs começam a piscar descontroladamente
+//sem usar esse sistema as gifs comecam a piscar descontroladamente
 
 @SuppressWarnings("serial")
-public class Alucinaçao extends JLabel implements Runnable {
+public class Alucinacao extends JLabel implements Runnable {
 	public ImageIcon imagem;
 	public float alpha = 0;
 	private boolean aumentandoAlpha = true;
 	public boolean jaAdd = false;
 	public boolean ativo = true;
-	public double xPosiçao;
-	public double yPosiçao;
+	public double xPosicao;
+	public double yPosicao;
 	private JLabel labelIcon;
 	
 	//variaveis para movimento
@@ -37,7 +37,7 @@ public class Alucinaçao extends JLabel implements Runnable {
 	private static final int MIN_VELOCIDADE = 300;
 	
 
-	public Alucinaçao() {
+	public Alucinacao() {
 		String[] alus = { "/Alu/cogumeloAlu.gif", "/Alu/cogumeloAlu3.gif", "/Alu/caindoAlu.gif", 
 				"/Alu/skateAlu.gif", "/Alu/ovelhaAlu.gif", "/Alu/pokeAlu.gif", "/Alu/fredAlu.gif"};
 
@@ -55,11 +55,11 @@ public class Alucinaçao extends JLabel implements Runnable {
 			setPontoFinal();
 		}
 
-		this.xPosiçao = (int) (Math.random() * (Principal.TAMANHO_GRID * Cell.WIDTH - this.imagem.getIconWidth()));
-		this.yPosiçao = 60 + (int) ((Math.random() * (Principal.TAMANHO_GRID * Cell.HEIGHT - this.imagem.getIconHeight())));
+		this.xPosicao = (int) (Math.random() * (Principal.TAMANHO_GRID * Cell.WIDTH - this.imagem.getIconWidth()));
+		this.yPosicao = 60 + (int) ((Math.random() * (Principal.TAMANHO_GRID * Cell.HEIGHT - this.imagem.getIconHeight())));
 
 		setSize(imagem.getIconWidth(), imagem.getIconHeight());
-		setLocation((int)xPosiçao, (int)yPosiçao);
+		setLocation((int)xPosicao, (int)yPosicao);
 
 		labelIcon = new JLabel(imagem);
 		labelIcon.setBounds(0, 0, imagem.getIconWidth(), imagem.getIconHeight());
@@ -109,9 +109,9 @@ public class Alucinaçao extends JLabel implements Runnable {
 	
 	private void update() {
 		if (isAndando) {
-			xPosiçao -= getXYVar(xVar);
-			yPosiçao -= getXYVar(yVar);
-			setLocation((int)xPosiçao, (int)yPosiçao);
+			xPosicao -= getXYVar(xVar);
+			yPosicao -= getXYVar(yVar);
+			setLocation((int)xPosicao, (int)yPosicao);
 		}
 	}
 	
