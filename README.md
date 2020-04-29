@@ -10,7 +10,14 @@ My first game with graphics made all the way back in 2015
 ### Default Mode
 ![Demo](static/snake_demo.gif)
 
-**Features**
+## Usage
+```
+git clone https://github.com/guiquintelas/snake.git
+cd snake
+java -jar Snake.jar
+```
+
+## Features
 - Music
 - Sound Effects
 - Deteriorating timer, more points the faster you eat your next food
