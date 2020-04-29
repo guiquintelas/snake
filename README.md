@@ -1,21 +1,31 @@
 # Snake
 
-Jogo da Cobrinha com um twist
+Simple snake game with a psychedelic twist
 
-Meu primeiro jogo com gráficos, feito no inicio de 2015
+My first game with graphics made all the way back in 2015
 
-<img src="http://agilti.com.br/prints/snake.png" />
+### Psychedelic Mode
+![Demo](static/snake_psyc_demo.gif)
+
+### Default Mode
+![Demo](static/snake_demo.gif)
 
 **Features**
-- 4 modos de velocidade (Mais rápido mais pontos)
-- Menos pontos por tempo entre as comidas
-- Comidas dão mais pontos se estão perto das paredes
+- Music
+- Sound Effects
+- Deteriorating timer, more points the faster you eat your next food
+- More points for each wall touching the food 
+- 4 speeds (Faster equals more points)
+- Chips, rare food that gives more points
+- Psychedelic mode
+- Speed mode
+- Highscore tracker
 
-- **Sistema de Unlock**<br>
-    (2000 pontos) Chips:  Batatas Chips começam a aparecer e são bem mais gostosas.<br>
-    (3000 pontos) Musica:  Musica 8 bit dos melhores hits da epoca.<br>
-    (4000 pontos) Modo XTreme:  Um modo de velocidade para profissionais.<br>
-    (5250 pontos) Modo Velocidade:  A cada comida nesse modo você fica mais rapido.<br>
-    (JÁ LIBERADO) Modo Alucinógenos: E se ao inves de maças fossem cogumelos que se mexem...
+- **Unlock System**  
+    (2000 points) **Chips**:  Chips starts to show, they're tastier then apples.  
+    (3000 points) **Music**:  Enjoy some 8 bit tunes while playing.  
+    (4000 points) **XTreme Speed**:  Professional speed mode.  
+    (5250 points) **Speed mode**:  It gets faster with each food.  
+    (ENABLE BY DEFAULT) **Psychedelic mode**: Let's change the diet a bit, what about some mushrooms...
     
-Para mudar de configuração basta morrer.
+You can change the menu configurations by dying :)
