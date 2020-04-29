@@ -228,7 +228,7 @@ public class Principal implements Runnable {
 		janela.getContentPane().add(velNormal);
 		velNormal.repaint();
 
-		velRapido = new JRadioButton("Rcpido");
+		velRapido = new JRadioButton("Rápido");
 		velRapido.setBounds(116, 30, 80, 15);
 		velRapido.setOpaque(false);
 		velRapido.setFocusable(false);

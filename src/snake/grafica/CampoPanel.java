@@ -293,7 +293,7 @@ public class CampoPanel extends JPanel implements Runnable {
 
 		//destravamento modo Alucinacoes
 
-		g.drawString("Modo Alucincgenos....", 25, 210);
+		g.drawString("Modo Alucinógenos....", 25, 210);
 
 		if (Principal.isDrogasUn) {
 			g.drawString("LIBERADO", 235, 210);
