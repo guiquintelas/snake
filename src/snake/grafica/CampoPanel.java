@@ -22,17 +22,17 @@ public class CampoPanel extends JPanel implements Runnable {
 	private Thread thread;
 	private boolean rodando = false;
 	private Cell[][] grid;
-	//imagem q sera montada fora do campo para ser pintada de uma vez só, evitando flashing de objetos
+	//imagem q sera montada fora do campo para ser pintada de uma vez sc, evitando flashing de objetos
 	private BufferedImage imagemParaPintar;
 	private BufferedImage imagemParaPintarInicial;
 	private Graphics2D g;
 	private BufferedImage imagemGUI;
 	private Graphics2D gGUI;
 	private boolean imagemParaPintarIniciada;
-	private ArrayList<PontosGanhosAnimaçao> listaPontos = new ArrayList<PontosGanhosAnimaçao>();
-	private ArrayList<Alucinaçao> listaAlu = new ArrayList<Alucinaçao>();
-	public DeformaçaoTela deformadorDeTela;
-	public BackAlucinaçao backAlu;
+	private ArrayList<PontosGanhosAnimacao> listaPontos = new ArrayList<PontosGanhosAnimacao>();
+	private ArrayList<Alucinacao> listaAlu = new ArrayList<Alucinacao>();
+	public DeformacaoTela deformadorDeTela;
+	public BackAlucinacao backAlu;
 	public MsgCampo msgCampo;
 
 	public CampoPanel(JFrame janela, Cell[][] grid) {
@@ -57,10 +57,10 @@ public class CampoPanel extends JPanel implements Runnable {
 		gGUI = (Graphics2D) imagemGUI.getGraphics();
 
 		//iniciando deformador
-		deformadorDeTela = new DeformaçaoTela();
+		deformadorDeTela = new DeformacaoTela();
 
-		//inciando o controlador de alucinaçao de fundo
-		backAlu = new BackAlucinaçao();
+		//inciando o controlador de alucinacao de fundo
+		backAlu = new BackAlucinacao();
 
 		//iniciar controlador de msg no campo
 		msgCampo = new MsgCampo();
@@ -92,7 +92,7 @@ public class CampoPanel extends JPanel implements Runnable {
 				repintarCampoInicio();
 				deformarTela();
 				manterPontosGanhos();
-				updateAlucinaçao();
+				updateAlucinacao();
 				msgCampo.pintarMsg(imagemParaPintar);
 
 				this.repaint();
@@ -153,7 +153,7 @@ public class CampoPanel extends JPanel implements Runnable {
 
 	}
 
-	//É sincronizado para no caso do metodo parar() for chamado bem na hora q o g tbm esta sendo utilizado para pintar o campo
+	//c sincronizado para no caso do metodo parar() for chamado bem na hora q o g tbm esta sendo utilizado para pintar o campo
 	public synchronized void parar() {
 
 		this.rodando = false;
@@ -205,7 +205,7 @@ public class CampoPanel extends JPanel implements Runnable {
 					if (grid[x][y].isFood()) {
 						pintarIntegridade(grid[x][y]);
 
-						g.drawImage(grid[x][y].maçaSprite.getImage(), grid[x][y].getX(), grid[x][y].getY(), Cell.WIDTH, Cell.HEIGHT, this);
+						g.drawImage(grid[x][y].macaSprite.getImage(), grid[x][y].getX(), grid[x][y].getY(), Cell.WIDTH, Cell.HEIGHT, this);
 
 					} else if (grid[x][y].isSnake()) {
 						g.drawImage(grid[x][y].snakeSprite, grid[x][y].getX(), grid[x][y].getY(), this);
@@ -223,7 +223,7 @@ public class CampoPanel extends JPanel implements Runnable {
 	}
 
 	private void pintarIntegridade(Cell comidaCell) {
-		gGUI.drawImage(comidaCell.maçaSprite.getImage(), 335, 35, Cell.WIDTH, Cell.HEIGHT, this);
+		gGUI.drawImage(comidaCell.macaSprite.getImage(), 335, 35, Cell.WIDTH, Cell.HEIGHT, this);
 
 		//ajusta a string no lugar certo
 		int xTexto = 262;
@@ -291,9 +291,9 @@ public class CampoPanel extends JPanel implements Runnable {
 			g.drawString(Principal.VELOCIDADE_AUMENTANDO_UN + " Pontos", 235, 190);
 		}
 
-		//destravamento modo Alucinaçoes
+		//destravamento modo Alucinacoes
 
-		g.drawString("Modo Alucinógenos....", 25, 210);
+		g.drawString("Modo Alucincgenos....", 25, 210);
 
 		if (Principal.isDrogasUn) {
 			g.drawString("LIBERADO", 235, 210);
@@ -309,8 +309,8 @@ public class CampoPanel extends JPanel implements Runnable {
 	}
 
 	public void criarPontosGanhos(int pontosGanhos, Cell lugarDaComida) {
-		listaPontos.add(new PontosGanhosAnimaçao(Integer.toString(pontosGanhos), lugarDaComida.getX(), lugarDaComida.getY(), Principal.chipsAtivo));
-		System.out.println("criou animaçao de pontos ganhos");
+		listaPontos.add(new PontosGanhosAnimacao(Integer.toString(pontosGanhos), lugarDaComida.getX(), lugarDaComida.getY(), Principal.chipsAtivo));
+		System.out.println("criou animacao de pontos ganhos");
 	}
 
 	public void manterPontosGanhos() {
@@ -328,10 +328,10 @@ public class CampoPanel extends JPanel implements Runnable {
 		}
 	}
 
-	public void updateAlucinaçao() {
+	public void updateAlucinacao() {
 		if (listaAlu.size() < Principal.nivelDrogas / 3) {
-			listaAlu.add(new Alucinaçao());
-			System.out.println("criou alucinaçao");
+			listaAlu.add(new Alucinacao());
+			System.out.println("criou alucinacao");
 		}
 
 		for (int x = 0; x < listaAlu.size(); x++) {
@@ -357,9 +357,9 @@ public class CampoPanel extends JPanel implements Runnable {
 
 			deformadorDeTela.updateStatus();
 
-			//BufferedImage imagemDeformada = deformadorDeTela.animaçaoDeformar(imagemParaPintar);
+			//BufferedImage imagemDeformada = deformadorDeTela.animacaoDeformar(imagemParaPintar);
 
-			g.drawImage(deformadorDeTela.animaçaoDeformar(imagemParaPintar), 0, 0, this);
+			g.drawImage(deformadorDeTela.animacaoDeformar(imagemParaPintar), 0, 0, this);
 
 			Cell.class.notify();
 		}

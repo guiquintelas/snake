@@ -25,7 +25,7 @@ import snake.som.Audio;
 import snake.som.BackgroundAudio;
 import snake.som.ChipsAudio;
 import snake.som.EatAluAudio;
-import snake.som.MaçaAudio;
+import snake.som.MacaAudio;
 import snake.som.RandomAudio;
 
 public class Principal implements Runnable {
@@ -39,7 +39,7 @@ public class Principal implements Runnable {
 	public static int tamanhoSnake = 4;
 	private int score;
 	private int highScore = 0;
-	private int direçao = 1;
+	private int direcao = 1;
 	public static int nivelDrogas = 0;
 
 	public static final int TAMANHO_GRID = 18;
@@ -89,14 +89,14 @@ public class Principal implements Runnable {
 	public static boolean chipsAtivo = false;
 	public static boolean musicaAtiva = true;
 
-	//tela onde é pintado o jogo
+	//tela onde c pintado o jogo
 	CampoPanel campoPanel;
 
 	//Audios
-	RandomAudio somComendo1 = new MaçaAudio("/Sons/comer1.wav");
-	RandomAudio somComendo2 = new MaçaAudio("/Sons/comer2.wav");
-	RandomAudio somComendo3 = new MaçaAudio("/Sons/comer3.wav");
-	RandomAudio somComendo4 = new MaçaAudio("/Sons/comer4.wav");
+	RandomAudio somComendo1 = new MacaAudio("/Sons/comer1.wav");
+	RandomAudio somComendo2 = new MacaAudio("/Sons/comer2.wav");
+	RandomAudio somComendo3 = new MacaAudio("/Sons/comer3.wav");
+	RandomAudio somComendo4 = new MacaAudio("/Sons/comer4.wav");
 	RandomAudio comerChips1 = new ChipsAudio("/Sons/comerChips1.wav");
 	RandomAudio comerChips2 = new ChipsAudio("/Sons/comerChips2.wav");
 	RandomAudio aluAudio = new AluAudio("/Sons/alu1.wav");
@@ -123,9 +123,9 @@ public class Principal implements Runnable {
 		ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream(fontName)));
 	}
 
-	// correçao do bug onde se voce mudase a direçao duas vezes antes do update
+	// correcao do bug onde se voce mudase a direcao duas vezes antes do update
 	// do campo a cobra poderia andar para dentro de si
-	private boolean direçaoJaMudada = false;
+	private boolean direcaoJaMudada = false;
 
 	private void criarJanela() {
 		janela.setVisible(true);
@@ -165,30 +165,30 @@ public class Principal implements Runnable {
 
 				if (e.getKeyCode() == KeyEvent.VK_LEFT) {
 
-					if (direçao != 3 && !direçaoJaMudada) {
-						direçao = 1;
-						direçaoJaMudada = true;
+					if (direcao != 3 && !direcaoJaMudada) {
+						direcao = 1;
+						direcaoJaMudada = true;
 					}
 				}
 
 				if (e.getKeyCode() == KeyEvent.VK_UP) {
-					if (direçao != 4 && !direçaoJaMudada) {
-						direçao = 2;
-						direçaoJaMudada = true;
+					if (direcao != 4 && !direcaoJaMudada) {
+						direcao = 2;
+						direcaoJaMudada = true;
 					}
 				}
 
 				if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-					if (direçao != 1 && !direçaoJaMudada) {
-						direçao = 3;
-						direçaoJaMudada = true;
+					if (direcao != 1 && !direcaoJaMudada) {
+						direcao = 3;
+						direcaoJaMudada = true;
 					}
 				}
 
 				if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-					if (direçao != 2 && !direçaoJaMudada) {
-						direçao = 4;
-						direçaoJaMudada = true;
+					if (direcao != 2 && !direcaoJaMudada) {
+						direcao = 4;
+						direcaoJaMudada = true;
 					}
 				}
 
@@ -228,7 +228,7 @@ public class Principal implements Runnable {
 		janela.getContentPane().add(velNormal);
 		velNormal.repaint();
 
-		velRapido = new JRadioButton("Rápido");
+		velRapido = new JRadioButton("Rcpido");
 		velRapido.setBounds(116, 30, 80, 15);
 		velRapido.setOpaque(false);
 		velRapido.setFocusable(false);
@@ -264,7 +264,7 @@ public class Principal implements Runnable {
 			}
 		});
 		
-		modoDrogasBox = new JCheckBox("Alucinógenos");
+		modoDrogasBox = new JCheckBox("Alucincgenos");
 		modoDrogasBox.setBounds(200, 15, 180, 20);
 		modoDrogasBox.setOpaque(false);
 		modoDrogasBox.setFocusable(false);
@@ -284,7 +284,7 @@ public class Principal implements Runnable {
 					
 					JTextPane msg = new JTextPane();
 					msg.setBounds(30, 10, 250, 20);
-					msg.setText("O seu PC é uma MERDA?");
+					msg.setText("O seu PC c uma MERDA?");
 					msg.setBackground(janelaAviso.getContentPane().getBackground());
 					msg.setEditable(false);
 					janelaAviso.add(msg);
@@ -364,7 +364,7 @@ public class Principal implements Runnable {
 
 		score = 0;
 		tamanhoSnake = 4;
-		direçao = 1;
+		direcao = 1;
 		nivelDrogas = 0;
 
 		cobraArray.clear();
@@ -452,7 +452,7 @@ public class Principal implements Runnable {
 
 	private void moverCobra() {
 
-		if (direçao == 1) {
+		if (direcao == 1) {
 			int x = cobraArray.getFirst().xPosition;
 			int y = cobraArray.getFirst().yPosition;
 
@@ -468,7 +468,7 @@ public class Principal implements Runnable {
 					comerFood(grid[x - 1][y]);
 				}
 
-				grid[x - 1][y].setSnakeCabeça(direçao);
+				grid[x - 1][y].setSnakeCabeca(direcao);
 				moverResto(grid[x - 1][y]);
 
 				return;
@@ -480,7 +480,7 @@ public class Principal implements Runnable {
 			return;
 		}
 
-		if (direçao == 2) {
+		if (direcao == 2) {
 			int x = cobraArray.getFirst().xPosition;
 			int y = cobraArray.getFirst().yPosition;
 
@@ -496,7 +496,7 @@ public class Principal implements Runnable {
 					comerFood(grid[x][y - 1]);
 				}
 
-				grid[x][y - 1].setSnakeCabeça(direçao);
+				grid[x][y - 1].setSnakeCabeca(direcao);
 				moverResto(grid[x][y - 1]);
 				return;
 
@@ -509,7 +509,7 @@ public class Principal implements Runnable {
 
 		}
 
-		if (direçao == 3) {
+		if (direcao == 3) {
 			int x = cobraArray.getFirst().xPosition;
 			int y = cobraArray.getFirst().yPosition;
 
@@ -525,7 +525,7 @@ public class Principal implements Runnable {
 					comerFood(grid[x + 1][y]);
 				}
 
-				grid[x + 1][y].setSnakeCabeça(direçao);
+				grid[x + 1][y].setSnakeCabeca(direcao);
 				moverResto(grid[x + 1][y]);
 				return;
 
@@ -536,7 +536,7 @@ public class Principal implements Runnable {
 			return;
 		}
 
-		if (direçao == 4) {
+		if (direcao == 4) {
 			int x = cobraArray.getFirst().xPosition;
 			int y = cobraArray.getFirst().yPosition;
 
@@ -552,7 +552,7 @@ public class Principal implements Runnable {
 					comerFood(grid[x][y + 1]);
 				}
 
-				grid[x][y + 1].setSnakeCabeça(direçao);
+				grid[x][y + 1].setSnakeCabeca(direcao);
 				moverResto(grid[x][y + 1]);
 				return;
 
@@ -565,8 +565,8 @@ public class Principal implements Runnable {
 
 	}
 
-	private void moverResto(Cell cabeçaNova) {
-			cobraArray.addFirst(cabeçaNova);
+	private void moverResto(Cell cabecaNova) {
+			cobraArray.addFirst(cabecaNova);
 
 			if (cobraArray.size() != tamanhoSnake) {
 				cobraArray.getLast().setSnake(false, 0);
@@ -581,42 +581,42 @@ public class Principal implements Runnable {
 		for (int x = 0; x < cobraArray.size(); x++) {
 			cobraArray.get(x).setSnake(true, x + 1);
 			
-			//para o rabo sempre apontar para a direçao oposta ao penultimo segmento de cobra
+			//para o rabo sempre apontar para a direcao oposta ao penultimo segmento de cobra
 			if (x == cobraArray.size() - 1) {
-				cobraArray.get(x).orientaçao = cobraArray.get(x - 1).orientaçao;
+				cobraArray.get(x).orientacao = cobraArray.get(x - 1).orientacao;
 				cobraArray.get(x).setCorpo(false);
 				cobraArray.get(x).atualiza();
 				break;
 			}
 			
 			
-			if (x > 0 && x < cobraArray.size() - 1 && cobraArray.get(x - 1).orientaçao == cobraArray.get(x).orientaçao)  {
+			if (x > 0 && x < cobraArray.size() - 1 && cobraArray.get(x - 1).orientacao == cobraArray.get(x).orientacao)  {
 				cobraArray.get(x).setCorpo(true);
 				cobraArray.get(x).atualiza();
 				continue;
 			}
 			
-			if (x > 0 && x < cobraArray.size() - 1 && cobraArray.get(x - 1).orientaçao != cobraArray.get(x).orientaçao)  {
-				if (cobraArray.get(x - 1).orientaçao == 4 && cobraArray.get(x).orientaçao == 1 || cobraArray.get(x - 1).orientaçao == 3 && cobraArray.get(x).orientaçao == 2) {
+			if (x > 0 && x < cobraArray.size() - 1 && cobraArray.get(x - 1).orientacao != cobraArray.get(x).orientacao)  {
+				if (cobraArray.get(x - 1).orientacao == 4 && cobraArray.get(x).orientacao == 1 || cobraArray.get(x - 1).orientacao == 3 && cobraArray.get(x).orientacao == 2) {
 					cobraArray.get(x).setCurva(0);
 					cobraArray.get(x).atualiza();
 					continue;
 				}
 				
-				if (cobraArray.get(x - 1).orientaçao == 4 && cobraArray.get(x).orientaçao == 3 || cobraArray.get(x - 1).orientaçao == 1 && cobraArray.get(x).orientaçao == 2) {
+				if (cobraArray.get(x - 1).orientacao == 4 && cobraArray.get(x).orientacao == 3 || cobraArray.get(x - 1).orientacao == 1 && cobraArray.get(x).orientacao == 2) {
 					cobraArray.get(x).setCurva(1);
 					cobraArray.get(x).atualiza();
 					
 					continue;
 				}
 				
-				if (cobraArray.get(x - 1).orientaçao == 1 && cobraArray.get(x).orientaçao == 4 || cobraArray.get(x - 1).orientaçao == 2 && cobraArray.get(x).orientaçao == 3) {
+				if (cobraArray.get(x - 1).orientacao == 1 && cobraArray.get(x).orientacao == 4 || cobraArray.get(x - 1).orientacao == 2 && cobraArray.get(x).orientacao == 3) {
 					cobraArray.get(x).setCurva(2);
 					cobraArray.get(x).atualiza();
 					continue;
 				}
 				
-				if (cobraArray.get(x - 1).orientaçao == 2 && cobraArray.get(x).orientaçao == 1 || cobraArray.get(x - 1).orientaçao == 3 && cobraArray.get(x).orientaçao == 4) {
+				if (cobraArray.get(x - 1).orientacao == 2 && cobraArray.get(x).orientacao == 1 || cobraArray.get(x - 1).orientacao == 3 && cobraArray.get(x).orientacao == 4) {
 					cobraArray.get(x).setCurva(3);
 					cobraArray.get(x).atualiza();
 					continue;
@@ -667,7 +667,7 @@ public class Principal implements Runnable {
 			somComendo1.play();
 		}
 		
-		//aumentar nivel de alucinaçao
+		//aumentar nivel de alucinacao
 		if (gameModeDrogas) {
 			nivelDrogas++;
 			
@@ -690,7 +690,7 @@ public class Principal implements Runnable {
 		score += (tamanhoSnake - 3) * cellDaComida.pontos() * bonusPontos();
 		labelScore.setText("Pontos: " + score);
 		
-		//aumentoando maior pontuação
+		//aumentoando maior pontuacco
 		if (score > highScore) {
 			highScore = score;
 		}
@@ -797,7 +797,7 @@ public class Principal implements Runnable {
 			}
 
 			while (!gameOver && !isPausado) {
-				direçaoJaMudada = false;
+				direcaoJaMudada = false;
 				
 				moverCobra();
 				checarDestrava();		
@@ -808,7 +808,7 @@ public class Principal implements Runnable {
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
-				//esta aqui para começar no 100, e nao 99
+				//esta aqui para comecar no 100, e nao 99
 				Cell.atualizaIntegridade();
 			}
 			
@@ -818,7 +818,7 @@ public class Principal implements Runnable {
 		//pausa a backMusic
 		((BackgroundAudio) getLuckyBack).resetar();
 		
-		//para alucinaçao do fundo
+		//para alucinacao do fundo
 		campoPanel.backAlu.resetar();
 		
 		//toca o som de game over 

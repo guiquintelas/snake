@@ -18,8 +18,8 @@ public class Cell {
 	private boolean snake = false;
 	private boolean food = false;
 	private boolean corpo;
-	//orientaçao
-	public int orientaçao = 1;
+	//orientacao
+	public int orientacao = 1;
 	// 1 = esuqerda
 	// 2 = cima
 	// 3 = direita
@@ -33,10 +33,10 @@ public class Cell {
 	public int celulasDoCorpo = 0;	
 	
 	//imagem
-	public ImageIcon maçaSprite;
+	public ImageIcon macaSprite;
 	public BufferedImage snakeSprite;
 	
-	private static ArrayList<BufferedImage> cobraCabeça = new ArrayList<BufferedImage>();
+	private static ArrayList<BufferedImage> cobraCabeca = new ArrayList<BufferedImage>();
 	private static ArrayList<BufferedImage> cobraCorpo = new ArrayList<BufferedImage>();
 	private static ArrayList<BufferedImage> cobraCurva = new ArrayList<BufferedImage>();
 	private static ArrayList<BufferedImage> cobraRabo = new ArrayList<BufferedImage>();
@@ -45,9 +45,9 @@ public class Cell {
 	private static final ImageIcon cogumeloLado = carregarIcone("/Sprites/cogumeloLado.gif");
 	private static final ImageIcon cogumeloQuina = carregarIcone("/Sprites/cogumeloQuina.gif");
 	
-	private static final ImageIcon maçaNormal = carregarIcone("/Sprites/maçaNormal.png");	
-	private static final ImageIcon maçaLado = carregarIcone("/Sprites/maçaLado.png");	
-	private static final ImageIcon maçaQuina = carregarIcone("/Sprites/maçaQuina.png");
+	private static final ImageIcon macaNormal = carregarIcone("/Sprites/macaNormal.png");
+	private static final ImageIcon macaLado = carregarIcone("/Sprites/macaLado.png");
+	private static final ImageIcon macaQuina = carregarIcone("/Sprites/macaQuina.png");
 	
 	private static final ImageIcon chip = carregarIcone("/Sprites/chip.png");
 	
@@ -67,7 +67,7 @@ public class Cell {
 				}
 				
 				if (x >= 80 && y == 0) {
-					cobraCabeça.add(bitmap.getSubimage(x, y, WIDTH, HEIGHT));
+					cobraCabeca.add(bitmap.getSubimage(x, y, WIDTH, HEIGHT));
 					continue;
 				}
 				
@@ -103,9 +103,9 @@ public class Cell {
 		}
 	}
 
-	public void setSnakeCabeça(int orientação) {
+	public void setSnakeCabeca(int orientacco) {
 		this.celulasDoCorpo = 1;
-		this.orientaçao = orientação;
+		this.orientacao = orientacco;
 		this.snake = true;
 	}
 	
@@ -123,7 +123,7 @@ public class Cell {
 		snakeSprite = cobraCurva.get(tipoDeCurva); 
 	}
 
-	public boolean isCabeça() {
+	public boolean isCabeca() {
 		if (celulasDoCorpo == 1) {
 			return true;
 		}
@@ -141,9 +141,9 @@ public class Cell {
 	public boolean isFood() {
 		if (food) {
 			if (Principal.gameModeDrogas) {
-				maçaSprite = cogumeloNormal;
+				macaSprite = cogumeloNormal;
 			} else {
-				maçaSprite = maçaNormal;
+				macaSprite = macaNormal;
 			}
 			
 
@@ -151,9 +151,9 @@ public class Cell {
 			if (this.xPosition == 0 || this.xPosition == (Principal.TAMANHO_GRID - 1)) {				
 				
 				if (Principal.gameModeDrogas) {
-					maçaSprite = cogumeloLado;
+					macaSprite = cogumeloLado;
 				} else {
-					maçaSprite = maçaLado;
+					macaSprite = macaLado;
 				}
 				
 				quina++;
@@ -162,9 +162,9 @@ public class Cell {
 			if (this.yPosition == 0 || this.yPosition == (Principal.TAMANHO_GRID - 1)) {
 				
 				if (Principal.gameModeDrogas) {
-					maçaSprite = cogumeloLado;
+					macaSprite = cogumeloLado;
 				} else {
-					maçaSprite = maçaLado;
+					macaSprite = macaLado;
 				}
 				
 				quina++;
@@ -172,14 +172,14 @@ public class Cell {
 			
 			if (quina == 2) {
 				if (Principal.gameModeDrogas) {
-					maçaSprite = cogumeloQuina;
+					macaSprite = cogumeloQuina;
 				} else {
-					maçaSprite = maçaQuina;
+					macaSprite = macaQuina;
 				}
 			}
 			
 			if (Principal.chipsAtivo) {
-				maçaSprite = chip;
+				macaSprite = chip;
 			}
 			
 		}
@@ -209,17 +209,17 @@ public class Cell {
 		isCampo();
 		
 		if (isSnake()) {
-			if (isCabeça()) {		
-				snakeSprite = cobraCabeça.get(orientaçao - 1);
+			if (isCabeca()) {
+				snakeSprite = cobraCabeca.get(orientacao - 1);
 			return;
 			}
 			if (isRabo()) {
-				snakeSprite = cobraRabo.get(orientaçao - 1);
+				snakeSprite = cobraRabo.get(orientacao - 1);
 				return;
 			}
 			
 			if (corpo) {
-				if (orientaçao == 1 || orientaçao == 3) {
+				if (orientacao == 1 || orientacao == 3) {
 					snakeSprite = cobraCorpo.get(0);
 				} else {
 					snakeSprite = cobraCorpo.get(1);

@@ -2,31 +2,31 @@
 snake normal
 //BUGS
 
-ao minimizar e maximizar o metodo repaint é chamado na tela do jogo, deixando ele branco //feito 09/05/2015
+ao minimizar e maximizar o metodo repaint Ã§ chamado na tela do jogo, deixando ele branco //feito 09/05/2015
 	usar listener para pintar painel assim q for maximizado
 
 
 //NOVAS MECANICAS
 
--maças diminuem sua pontuaçao ao passar do tempo /feito 08/05/2015
+-maÃ§as diminuem sua pontuaÃ§ao ao passar do tempo /feito 08/05/2015
 
--maças encostadas nas pontas dao pontuação bonus /feito 08/05/2015
+-maÃ§as encostadas nas pontas dao pontuaÃ§Ã§o bonus /feito 08/05/2015
 	possivel nova aparencia 
 	possivel novo som
 
 //ESTETICA
--aparecer os pontos ganhos na ultima maça no extado lugar onde ela estava//feito 09/05/2015
-	um possivel tempo, tipo 2 segundo ate desaparecer ou pelum determinado numeros de atualizaçoes
+-aparecer os pontos ganhos na ultima maÃ§a no extado lugar onde ela estava//feito 09/05/2015
+	um possivel tempo, tipo 2 segundo ate desaparecer ou pelum determinado numeros de atualizaÃ§oes
 	um fade out para numero desaparecer
 
 
--fundo aleatóriamente gerado
+-fundo aleatÃ§riamente gerado
 	varias imagens do tamanho de cells para serem escolhidas na hora de fazer  campo
 
 -imagem da cobra melhorada//feito 11/05/2015
-	demarcaçao lateral para saber os limites de um segmento de cobra
+	demarcaÃ§ao lateral para saber os limites de um segmento de cobra
 	
--imagem de maça melhorada// feito 10/05/2015
+-imagem de maÃ§a melhorada// feito 10/05/2015
 
 -musica de fundo? //feito 06/06/2015
 
@@ -48,18 +48,18 @@ ao minimizar e maximizar o metodo repaint é chamado na tela do jogo, deixando el
 	sendo basiado em uma interface de loja?
 
 -snake psicodelica 
-	-alucinaçoes aleatorias, criar biblioteca de imagem(ou gifs) doidas // feito 25/05/2015
-	-imagem da maça como uma pilula de lsd               //feito 12/05/2015 cogumelos e nao pilulas
+	-alucinaÃ§oes aleatorias, criar biblioteca de imagem(ou gifs) doidas // feito 25/05/2015
+	-imagem da maÃ§a como uma pilula de lsd               //feito 12/05/2015 cogumelos e nao pilulas
 	-musica de fundo q comece normal, mas q aumente e distorce 
-		com a aparição de musicas famosas q dao uma vibe boa
+		com a apariÃ§Ã§o de musicas famosas q dao uma vibe boa
 	-inicio como jogo da cobrinha normal, porem um crescente clima de doidao // feito 06/06/2015
 	-fundo pisca a cada pilula tomada
-	-fundo em crescente mudança, começando normal e gradualmente aumentando a opacidade de um gif psicodelico de fundo
+	-fundo em crescente mudanÃ§a, comeÃ§ando normal e gradualmente aumentando a opacidade de um gif psicodelico de fundo
 		fundo psicodelico pode ser uma ilusao de otica, ou uma mandala, ou cores bonitas(imagem de lsd)
-	-distorçoes de tela q se movem
-		sendo pregressivamente mais comum esse locomoçao e mais intensa
-	-MAIS distorçoes de cores 
-		distorçao de inverter // feito 05/06/2015	
+	-distorÃ§oes de tela q se movem
+		sendo pregressivamente mais comum esse locomoÃ§ao e mais intensa
+	-MAIS distorÃ§oes de cores 
+		distorÃ§ao de inverter // feito 05/06/2015	
 
 -extreme sendo destravavel aos 5000 /feito 08/05/2015
 	msg mostrando q isso precisa acontecer e que ja aconteceu em algum lugar

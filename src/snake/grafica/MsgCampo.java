@@ -15,9 +15,9 @@ public class MsgCampo implements Runnable{
 	private boolean isFadingOut = false;
 	private int timer = 0;
 	private double y = 70;
-	private static final double Y_VARIAÇAO = 10;
-	private static final long DURAÇAO = 5000;
-	private static final int FADE_DURAÇAO = 800;
+	private static final double Y_VARIAcAO = 10;
+	private static final long DURAcAO = 5000;
+	private static final int FADE_DURAcAO = 800;
 	private static final int DELAY = 40;
 	
 	public void setText(String text) {
@@ -43,7 +43,7 @@ public class MsgCampo implements Runnable{
 	}
 	
 	private void updateY() {
-		double yVar = Y_VARIAÇAO / (FADE_DURAÇAO / DELAY);
+		double yVar = Y_VARIAcAO / (FADE_DURAcAO / DELAY);
 		if (isFadingIn) {
 			y -= yVar;
 		}
@@ -54,15 +54,15 @@ public class MsgCampo implements Runnable{
 	}
 	
 	private void updateAlpha() {
-		if (timer >= DURAÇAO - FADE_DURAÇAO) {
+		if (timer >= DURAcAO - FADE_DURAcAO) {
 			isFadingOut = true;
 		}
 		
-		if (timer >= FADE_DURAÇAO) {
+		if (timer >= FADE_DURAcAO) {
 			isFadingIn = false;
 		}	
 
-		float alphaVar = (float) 1 / (FADE_DURAÇAO / DELAY);
+		float alphaVar = (float) 1 / (FADE_DURAcAO / DELAY);
 		if (isFadingIn) {
 			alpha += alphaVar;
 			if (alpha >= 1) {
@@ -80,7 +80,7 @@ public class MsgCampo implements Runnable{
 	
 	private void updateTimer() {
 		timer += DELAY;
-		if (timer >= DURAÇAO) isAtivado = false;
+		if (timer >= DURAcAO) isAtivado = false;
 	}
 	
 	private void ativar() {
