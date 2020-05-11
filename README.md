@@ -2,7 +2,7 @@
 
 Simple snake game with a psychedelic twist
 
-My first game with graphics made all the way back in 2015
+My first game with graphics made way back in 2015
 
 ### Psychedelic Mode
 ![Demo](static/snake_psyc_demo.gif)
@@ -33,6 +33,6 @@ java -jar Snake.jar
     (3000 points) **Music**:  Enjoy some 8 bit tunes while playing.  
     (4000 points) **XTreme Speed**:  Professional speed mode.  
     (5250 points) **Speed mode**:  It gets faster with each food.  
-    (ENABLE BY DEFAULT) **Psychedelic mode**: Let's change the diet a bit, what about some mushrooms...
+    (ENABLED BY DEFAULT) **Psychedelic mode**: Let's change the diet a bit, what about some mushrooms...
     
 You can change the menu configurations by dying :)
